@@ -156,7 +156,7 @@
         function getBudget() {
             axios.get('http://localhost:3000/budget').then(function(res) {
                 console.log(res.data);
-                var myBudgetData = res.data.myBudget;
+                var myBudgetData = res.data;
                 for(var i=0; i<myBudgetData.length; i++) {
                     dataSource.datasets[0].data.push(myBudgetData[i].budget);
                     dataSource.labels.push(myBudgetData[i].title);
@@ -164,7 +164,7 @@
                     dataSource.datasets[0].borderColor.push(myBudgetData[i].borderColor);
                 }
                 createChart();                
-                createD3Chart(res.data.myBudget);
+                createD3Chart(res.data);
             })
         }
 
